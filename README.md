@@ -164,21 +164,31 @@ personal-goq add "Buy milk"
 ### Project Structure
 ```
 .
-├── cmd/                    # Cobra command definitions
-│   ├── root.go            # Root command and Viper config
-│   ├── add.go             # Add command
-│   ├── list.go            # List command
-│   ├── edit.go            # Edit command
-│   ├── delete.go          # Delete command
-│   └── toggle.go          # Toggle command
-├── internal/
-│   ├── todo/              # Todo business logic
-│   │   └── todo.go        # Todo types and methods
-│   └── storage/           # Storage abstraction
-│       └── storage.go     # Generic JSON storage
-├── main.go                # Application entry point
-├── config.example.yaml    # Example configuration
-└── go.mod                 # Go modules
+├── cmd/                      # Cobra CLI commands
+│   ├── add.go              # Add todo command
+│   ├── delete.go           # Delete todo command
+│   ├── edit.go             # Edit todo command
+│   ├── list.go             # List todos command
+│   ├── root.go             # Root command and Viper config
+│   ├── toggle.go           # Toggle completion command
+│   └── version.go          # Version command
+├── .github/
+│   └── workflows/
+│       └── release.yml     # GitHub Actions for automated releases
+├── internal/               # Internal packages (not importable by external projects)
+│   ├── storage/            # Storage abstraction layer
+│   │   └── storage.go      # Generic JSON storage implementation
+│   └── todo/               # Todo business logic
+│       └── todo.go         # Todo types and methods
+├── .gitignore              # Git ignore rules
+├── config.example.yaml     # Example configuration file
+├── go.mod                  # Go module definition
+├── go.sum                  # Go module checksums
+├── install.sh              # Installation script for users
+├── LICENSE                 # MIT license
+├── main.go                 # Application entry point
+├── Makefile                # Build and installation automation
+└── README.md               # Project documentation
 ```
 
 ### Key Design Patterns

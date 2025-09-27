@@ -50,5 +50,9 @@ build/
 config.local.yaml
 *.local.yaml
 
+# Local data files (todos should be stored in ~/.config/goqueue/)
+todos.json
+*.local.json
+
 # Old files from migration
 old/
