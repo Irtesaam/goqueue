@@ -17,7 +17,7 @@ Goqueue is a command-line To-Do app written in Go — for people who’d rather 
 - **Persistent storage**: JSON-based storage with automatic backups
 
 ## Installation
-### Method 1: Quick Install (Recommended)
+### Quick Install (Recommended)
 The easiest way to install GoQueue:
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Irtesaam/goqueue/master/install.sh | bash
@@ -27,16 +27,6 @@ This script will:
 - Download the latest pre-built binary
 - Install it to your system PATH
 - Handle permissions automatically
-
-### Method 2: Build from Source
-If you prefer to build from source or the install script doesn't work on your system:
-**Prerequisites:** Go 1.19+ and Git
-```bash
-# Clone and build
-git clone git@github.com:Irtesaam/goqueue.git
-cd goqueue
-make install         # Installs to /usr/local/bin (requires sudo)
-```
 
 ### Uninstall GoQueue
 To remove GoQueue and all its data:
