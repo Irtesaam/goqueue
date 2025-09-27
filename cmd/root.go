@@ -20,7 +20,7 @@ var rootCmd = &cobra.Command{
 	Long: `A beautiful and professional command-line todo application built with Go.
 This application allows you to manage your tasks efficiently with a modern CLI interface.
 
-Complete documentation is available at https://github.com/yourusername/goqueue`,
+Complete documentation is available at https://github.com/Irtesaam/goqueue`,
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.

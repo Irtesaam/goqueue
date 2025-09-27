@@ -5,8 +5,8 @@ import (
 	"os"
 	"strconv"
 
-	"todo/internal/storage"
-	"todo/internal/todo"
+	"github.com/Irtesaam/goqueue/internal/storage"
+	"github.com/Irtesaam/goqueue/internal/todo"
 
 	"github.com/spf13/cobra"
 )

@@ -54,7 +54,7 @@ jobs:
         GOARCH: ${{ matrix.goarch }}
         CGO_ENABLED: 0
       run: |
-        go build -ldflags="-s -w -X 'todo/cmd.Version=${{ steps.version.outputs.VERSION }}' -X 'todo/cmd.GitCommit=${{ github.sha }}' -X 'todo/cmd.BuildDate=$(date -u +%Y-%m-%dT%H:%M:%SZ)'" -o goq${{ matrix.ext }}
+        go build -ldflags="-s -w -X 'github.com/Irtesaam/goqueue/cmd.Version=${{ steps.version.outputs.VERSION }}' -X 'github.com/Irtesaam/goqueue/cmd.GitCommit=${{ github.sha }}' -X 'github.com/Irtesaam/goqueue/cmd.BuildDate=$(date -u +%Y-%m-%dT%H:%M:%SZ)'" -o goq${{ matrix.ext }}
 
     - name: Create archive
       run: |

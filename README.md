@@ -33,13 +33,13 @@ A beautiful and professional command-line todo application built with Go, featur
 #### Option 1: Download and Install Script
 ```bash
 # Download and run the install script
-curl -fsSL https://raw.githubusercontent.com/yourusername/goqueue/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Irtesaam/goqueue/main/install.sh | bash
 ```
 
 #### Option 2: Manual Installation
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/goqueue.git
+git clone https://github.com/Irtesaam/goqueue.git
 cd goqueue
 
 # Build and install
@@ -50,17 +50,17 @@ make install
 ```bash
 # Download the latest release for your platform
 # Linux (x86_64)
-curl -L -o goq https://github.com/yourusername/goqueue/releases/latest/download/goq-linux-amd64
+curl -L -o goq https://github.com/Irtesaam/goqueue/releases/latest/download/goq-linux-amd64
 chmod +x goq
 sudo mv goq /usr/local/bin/
 
 # macOS (x86_64)
-curl -L -o goq https://github.com/yourusername/goqueue/releases/latest/download/goq-darwin-amd64
+curl -L -o goq https://github.com/Irtesaam/goqueue/releases/latest/download/goq-darwin-amd64
 chmod +x goq
 sudo mv goq /usr/local/bin/
 
 # macOS (ARM64 - Apple Silicon)
-curl -L -o goq https://github.com/yourusername/goqueue/releases/latest/download/goq-darwin-arm64
+curl -L -o goq https://github.com/Irtesaam/goqueue/releases/latest/download/goq-darwin-arm64
 chmod +x goq
 sudo mv goq /usr/local/bin/
 ```
@@ -74,7 +74,7 @@ sudo mv goq /usr/local/bin/
 #### Steps
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/goqueue.git
+git clone https://github.com/Irtesaam/goqueue.git
 cd goqueue
 
 # Build the binary
@@ -263,8 +263,8 @@ git add .
 # Commit
 git commit -m "Initial commit: Professional GoQueue CLI with Cobra and Viper"
 
-# Add remote (replace 'yourusername' with your GitHub username)
-git remote add origin https://github.com/yourusername/goqueue.git
+# Add remote (replace 'Irtesaam' with your GitHub username)
+git remote add origin https://github.com/Irtesaam/goqueue.git
 
 # Push to GitHub
 git push -u origin main
@@ -285,7 +285,7 @@ This will automatically trigger the GitHub Actions workflow to build binaries fo
 
 ```bash
 # Clone your repository
-git clone https://github.com/yourusername/goqueue.git
+git clone https://github.com/Irtesaam/goqueue.git
 cd goqueue
 
 # Build and test locally
@@ -320,10 +320,10 @@ After pushing to GitHub, test the installation process:
 
 ```bash
 # Test the install script
-curl -fsSL https://raw.githubusercontent.com/yourusername/goqueue/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Irtesaam/goqueue/main/install.sh | bash
 
 # Test manual installation
-curl -L -o goq https://github.com/yourusername/goqueue/releases/latest/download/goq-linux-amd64
+curl -L -o goq https://github.com/Irtesaam/goqueue/releases/latest/download/goq-linux-amd64
 chmod +x goq
 ./goq --version
 ```
