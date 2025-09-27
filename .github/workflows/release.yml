@@ -40,7 +40,7 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Set up Go
-      uses: actions/setup-go@v4
+      uses: actions/setup-go@v5
       with:
         go-version: '1.21'
 
@@ -65,13 +65,13 @@ jobs:
         fi
 
     - name: Upload binary as artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: goq-${{ matrix.os }}-${{ matrix.arch }}
         path: goq${{ matrix.ext }}
 
     - name: Upload archive as artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: goq-${{ matrix.os }}-${{ matrix.arch }}-archive
         path: |
