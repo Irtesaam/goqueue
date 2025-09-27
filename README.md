@@ -1,4 +1,6 @@
-# Professional GoQueue CLI Application
+# <div align="center">
+# GoQueue CLI Application
+# </div>
 
 Goqueue is a command-line ToDo app written in Go — because some of us would rather miss deadlines than leave the terminal. It features a modern CLI structure using Cobra and flexible configuration management with Viper.
 
@@ -141,3 +143,7 @@ The current architecture supports easy extension:
 ## License
 
 [MIT License](LICENSE) - see LICENSE file for details.
+
+<div align="center">
+Made with love ❤️ by Irtesaam
+</div>
