@@ -11,7 +11,7 @@ build:
 	@echo "🔨 Building GoQueue..."
 	@echo "📦 Resolving dependencies..."
 	go mod tidy
-	go build -o goq
+	go build -o goq .
 	@echo "✅ Build complete! Binary: ./goq"
 
 # Install to system directory (requires sudo)
