@@ -188,7 +188,7 @@ build_from_source() {
 
     print_info "Resolving dependencies..."
     go mod tidy
-    
+
     print_info "Building binary..."
     go build -o "$BINARY_NAME"
 

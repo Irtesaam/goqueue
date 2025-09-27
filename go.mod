@@ -1,4 +1,4 @@
-module github.com/Irtesaam/goqueue
+module goqueue
 
 go 1.24.7
 

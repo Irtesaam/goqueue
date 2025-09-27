@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/Irtesaam/goqueue/internal/storage"
-	"github.com/Irtesaam/goqueue/internal/todo"
+	"goqueue/internal/storage"
+	"goqueue/internal/todo"
 
 	"github.com/spf13/cobra"
 )

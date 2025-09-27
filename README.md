@@ -33,7 +33,7 @@ A beautiful and professional command-line todo application built with Go, featur
 The easiest way to install GoQueue:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Irtesaam/goqueue/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Irtesaam/goqueue/master/install.sh | bash
 ```
 
 This script will:
