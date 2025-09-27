@@ -2,7 +2,7 @@
     <h1>GoQueue CLI Application</h1>
 </div>
 
-Goqueue is a command-line To-Do app written in Go — because some of us would rather miss deadlines than leave the terminal. It combines a modern CLI powered by Cobra with flexible configuration via Viper, giving you a fast, no-nonsense workflow that lives where you do: the command line.
+Goqueue is a command-line To-Do app written in Go — for people who’d rather miss a deadline than leave the terminal. It combines a modern CLI powered by Cobra with flexible configuration via Viper, giving you a fast, no-nonsense workflow right in your terminal.
 
 <img width="1361" height="778" alt="image" src="https://github.com/user-attachments/assets/8180f9fe-54c5-4b3b-bc48-901a1ca43381" />
 
