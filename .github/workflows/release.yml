@@ -57,7 +57,7 @@ jobs:
         GOARCH: ${{ matrix.goarch }}
         CGO_ENABLED: 0
       run: |
-        go build -ldflags="-s -w -X 'goqueue/cmd.Version=${{ steps.version.outputs.VERSION }}' -X 'goqueue/cmd.GitCommit=${{ github.sha }}' -X 'goqueue/cmd.BuildDate=$(date -u +%Y-%m-%dT%H:%M:%SZ)'" -o goq${{ matrix.ext }}
+        go build -ldflags="-s -w -X 'github.com/Irtesaam/goqueue/cmd.Version=${{ steps.version.outputs.VERSION }}' -X 'github.com/Irtesaam/goqueue/cmd.GitCommit=${{ github.sha }}' -X 'github.com/Irtesaam/goqueue/cmd.BuildDate=$(date -u +%Y-%m-%dT%H:%M:%SZ)'" -o goq${{ matrix.ext }}
 
     - name: Create archive
       run: |
@@ -88,7 +88,7 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Download all artifacts
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
 
     - name: Get version
       id: version
@@ -111,7 +111,7 @@ jobs:
 
           #### Quick Install
           ```bash
-          curl -fsSL https://raw.githubusercontent.com/${{ github.repository }}/main/install.sh | bash
+          curl -fsSL https://raw.githubusercontent.com/${{ github.repository }}/master/install.sh | bash
           ```
 
           #### Manual Download
