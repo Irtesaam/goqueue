@@ -186,6 +186,9 @@ build_from_source() {
     git clone "https://github.com/$REPO.git" "$tmp_dir"
     cd "$tmp_dir"
 
+    print_info "Resolving dependencies..."
+    go mod tidy
+    
     print_info "Building binary..."
     go build -o "$BINARY_NAME"
 

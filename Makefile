@@ -9,6 +9,8 @@ all: build
 # Build the binary
 build:
 	@echo "🔨 Building GoQueue..."
+	@echo "📦 Resolving dependencies..."
+	go mod tidy
 	go build -o goq
 	@echo "✅ Build complete! Binary: ./goq"
 

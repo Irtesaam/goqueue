@@ -77,7 +77,8 @@ sudo mv goq /usr/local/bin/
 git clone https://github.com/Irtesaam/goqueue.git
 cd goqueue
 
-# Build the binary
+# Resolve dependencies and build
+go mod tidy
 go build -o goq
 
 # Install globally (optional)
