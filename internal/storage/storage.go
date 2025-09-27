@@ -18,7 +18,7 @@ func New[T any](fileName string) *Storage[T] {
 	}
 
 	storage := &Storage[T]{FileName: fileName}
-	
+
 	// Check if this is a fresh installation (directory was just created)
 	// If todos.json doesn't exist, we'll initialize it as empty on first load
 	return storage
@@ -31,7 +31,7 @@ func (s *Storage[T]) LoadOrInitialize(data *T) error {
 		// For slices, we need to create an empty slice, not nil
 		return os.WriteFile(s.FileName, []byte("[]"), 0644)
 	}
-	
+
 	// File exists, load it normally
 	return s.Load(data)
 }
@@ -66,7 +66,7 @@ func (s *Storage[T]) InitializeEmpty() error {
 			return err
 		}
 	}
-	
+
 	// Create empty array and save it
 	var emptyData T
 	return s.Save(emptyData)
