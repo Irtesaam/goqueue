@@ -26,16 +26,32 @@ A beautiful and professional command-line todo application built with Go, featur
 - **Delete tasks**: `goq delete 0` (or `goq del 0`)
 - **Persistent storage**: JSON-based storage with automatic backups
 
-## 📦 Installation
-
-### 🔧 Install from Source
+## Installation
+### Method 1: Quick Install (Recommended)
+The easiest way to install GoQueue:
 ```bash
-git clone git@github.com:Irtesaam/goqueue.git
+curl -fsSL https://raw.githubusercontent.com/Irtesaam/goqueue/master/install.sh | bash
+```
+This script will:
+- Detect your operating system and architecture
+- Download the latest pre-built binary
+- Install it to your system PATH
+- Handle permissions automatically
+### Method 2: Build from Source
+If you prefer to build from source or the install script doesn't work on your system:
+**Prerequisites:** Go 1.19+ and Git
+```bash
+# Clone and build
+git clone https://github.com/Irtesaam/goqueue.git
 cd goqueue
-make install
+make install-user    # Installs to ~/.local/bin (no sudo required)
+# OR
+make install         # Installs to /usr/local/bin (requires sudo)
 ```
 
-> **Note**: This repository is private. You need access to clone it via SSH.
+### Verify Installation
+
+```bash
 
 ### Verify Installation
 
