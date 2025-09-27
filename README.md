@@ -2,7 +2,9 @@
     <h1>GoQueue CLI Application</h1>
 </div>
 
-Goqueue is a command-line ToDo app written in Go — because some of us would rather miss deadlines than leave the terminal. It features a modern CLI structure using Cobra and flexible configuration management with Viper.
+Goqueue is a command-line To-Do app written in Go — because some of us would rather miss deadlines than leave the terminal. It combines a modern CLI powered by Cobra with flexible configuration via Viper, giving you a fast, no-nonsense workflow that lives where you do: the command line.
+
+<img width="1361" height="778" alt="image" src="https://github.com/user-attachments/assets/8180f9fe-54c5-4b3b-bc48-901a1ca43381" />
 
 ## Features
 
@@ -25,15 +27,14 @@ This script will:
 - Download the latest pre-built binary
 - Install it to your system PATH
 - Handle permissions automatically
+
 ### Method 2: Build from Source
 If you prefer to build from source or the install script doesn't work on your system:
 **Prerequisites:** Go 1.19+ and Git
 ```bash
 # Clone and build
-git clone https://github.com/Irtesaam/goqueue.git
+git clone git@github.com:Irtesaam/goqueue.git
 cd goqueue
-make install-user    # Installs to ~/.local/bin (no sudo required)
-# OR
 make install         # Installs to /usr/local/bin (requires sudo)
 ```
 
@@ -92,32 +93,6 @@ work-goq add "Review code"
 # Personal todos
 alias personal-goq='goq --file "$HOME/.config/goqueue/personal.json"'
 personal-goq add "Buy milk"
-```
-
-## Technical Details
-
-### Dependencies
-- **Cobra**: Professional CLI framework used by Docker, Kubernetes, etc
-- **Viper**: Configuration management supporting files, env vars, and flags
-- **Aquasecurity Table**: Beautiful table formatting for list output
-
-### Configuration Precedence
-1. Command-line flags (`--file`)
-2. Environment variables (`GOQUEUE_FILE`)
-3. Configuration file (`~/.config/goqueue/config.yaml`)
-4. Default values (`~/.config/goqueue/todos.json`)
-
-### Storage Format
-Tasks are stored in JSON format:
-```json
-[
-    {
-        "Title": "Learn Cobra CLI framework",
-        "Completed": true,
-        "CreatedAt": "2025-09-27T09:24:12.123456789+05:30",
-        "CompletedAt": "2025-09-27T09:24:31.987654321+05:30"
-    }
-]
 ```
 
 ## Future Enhancements🔥
