@@ -1,6 +1,6 @@
 package main
 
-import "goqueue/cmd"
+import "github.com/Irtesaam/goqueue/cmd"
 
 func main() {
 	cmd.Execute()
