@@ -48,6 +48,13 @@ jobs:
       id: version
       run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
 
+    - name: Debug directory structure
+      run: |
+        pwd
+        ls -la
+        find . -name "*.go" | head -10
+        cat go.mod
+
     - name: Download dependencies
       run: go mod tidy
 
@@ -57,7 +64,7 @@ jobs:
         GOARCH: ${{ matrix.goarch }}
         CGO_ENABLED: 0
       run: |
-        go build -o goq${{ matrix.ext }} .
+        go build -v -o goq${{ matrix.ext }} .
 
     - name: Create archive
       run: |

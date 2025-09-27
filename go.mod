@@ -2,8 +2,6 @@ module goqueue
 
 go 1.24.7
 
-replace goqueue => ./
-
 require (
 	github.com/aquasecurity/table v1.11.0
 	github.com/spf13/cobra v1.10.1
