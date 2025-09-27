@@ -28,75 +28,41 @@ A beautiful and professional command-line todo application built with Go, featur
 
 ## Installation
 
-### Quick Install (Recommended)
+### Method 1: Quick Install (Recommended)
 
-#### Option 1: Download and Install Script
+The easiest way to install GoQueue:
+
 ```bash
-# Download and run the install script
 curl -fsSL https://raw.githubusercontent.com/Irtesaam/goqueue/main/install.sh | bash
 ```
 
-#### Option 2: Manual Installation
+This script will:
+- Detect your operating system and architecture
+- Download the latest pre-built binary
+- Install it to your system PATH
+- Handle permissions automatically
+
+### Method 2: Build from Source
+
+If you prefer to build from source or the install script doesn't work on your system:
+
+**Prerequisites:** Go 1.19+ and Git
+
 ```bash
-# Clone the repository
+# Clone and build
 git clone https://github.com/Irtesaam/goqueue.git
 cd goqueue
-
-# Build and install
-make install
-```
-
-#### Option 3: Download Pre-built Binary
-```bash
-# Download the latest release for your platform
-# Linux (x86_64)
-curl -L -o goq https://github.com/Irtesaam/goqueue/releases/latest/download/goq-linux-amd64
-chmod +x goq
-sudo mv goq /usr/local/bin/
-
-# macOS (x86_64)
-curl -L -o goq https://github.com/Irtesaam/goqueue/releases/latest/download/goq-darwin-amd64
-chmod +x goq
-sudo mv goq /usr/local/bin/
-
-# macOS (ARM64 - Apple Silicon)
-curl -L -o goq https://github.com/Irtesaam/goqueue/releases/latest/download/goq-darwin-arm64
-chmod +x goq
-sudo mv goq /usr/local/bin/
-```
-
-### Build from Source
-
-#### Prerequisites
-- Go 1.19 or later installed on your system
-- Git for cloning the repository
-
-#### Steps
-```bash
-# Clone the repository
-git clone https://github.com/Irtesaam/goqueue.git
-cd goqueue
-
-# Resolve dependencies and build
-go mod tidy
-go build -o goq
-
-# Install globally (optional)
-sudo mv goq /usr/local/bin/
-
-# Or install to user directory (no sudo required)
-mkdir -p ~/.local/bin
-mv goq ~/.local/bin/
-# Make sure ~/.local/bin is in your PATH
-echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc  # or ~/.zshrc
-source ~/.bashrc  # or source ~/.zshrc
+make install-user    # Installs to ~/.local/bin (no sudo required)
+# OR
+make install         # Installs to /usr/local/bin (requires sudo)
 ```
 
 ### Verify Installation
+
 ```bash
-# Check if goq is installed correctly
 goq --version
-goq --help
+goq add "My first todo! 🎉"
+goq list
 
 # Add your first todo
 goq add "Welcome to GoQueue! 🎉"
@@ -257,86 +223,14 @@ The current architecture supports easy extension:
 - **Search**: Full-text search across todos
 - **Statistics**: Completion rates and productivity metrics
 
-## For Developers
-
-### Setting up the Project on GitHub
-
-1. **Create a new repository on GitHub** named `goqueue`
-
-2. **Initialize and push your code:**
-```bash
-# Initialize git (if not already done)
-git init
-
-# Add all files
-git add .
-
-# Commit
-git commit -m "Initial commit: Professional GoQueue CLI with Cobra and Viper"
-
-# Add remote (replace 'Irtesaam' with your GitHub username)
-git remote add origin https://github.com/Irtesaam/goqueue.git
-
-# Push to GitHub
-git push -u origin main
-```
-
-3. **Enable GitHub Actions** (automatically enabled when you push the workflow file)
-
-4. **Create your first release:**
-```bash
-# Tag a version
-git tag v1.0.0
-git push origin v1.0.0
-```
-
-This will automatically trigger the GitHub Actions workflow to build binaries for all platforms and create a release.
+## Development
 
 ### Local Development
-
 ```bash
-# Clone your repository
 git clone https://github.com/Irtesaam/goqueue.git
 cd goqueue
-
-# Build and test locally
 make build
 ./goq --help
-
-# Install locally for testing
-make install-user
-
-# Run from anywhere
-goq add "Test from anywhere!"
-goq list
-```
-
-### Release Process
-
-1. **Update version** and commit changes
-2. **Create and push a git tag:**
-```bash
-git tag v1.0.1
-git push origin v1.0.1
-```
-3. **GitHub Actions will automatically:**
-   - Build binaries for Linux, macOS, and Windows
-   - Create a GitHub release
-   - Upload all binaries as release assets
-   - Generate release notes
-
-### Testing the Installation Process
-
-After pushing to GitHub, test the installation process:
-
-```bash
-# Test the install script
-curl -fsSL https://raw.githubusercontent.com/Irtesaam/goqueue/main/install.sh | bash
-
-# Test manual installation
-curl -L -o goq https://github.com/Irtesaam/goqueue/releases/latest/download/goq-linux-amd64
-chmod +x goq
-./goq --version
 ```
 
 ## Contributing
