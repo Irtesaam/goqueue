@@ -1,0 +1,132 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - os: linux
+            arch: amd64
+            goos: linux
+            goarch: amd64
+          - os: linux
+            arch: arm64
+            goos: linux
+            goarch: arm64
+          - os: darwin
+            arch: amd64
+            goos: darwin
+            goarch: amd64
+          - os: darwin
+            arch: arm64
+            goos: darwin
+            goarch: arm64
+          - os: windows
+            arch: amd64
+            goos: windows
+            goarch: amd64
+            ext: .exe
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.21'
+
+    - name: Get version
+      id: version
+      run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
+    - name: Build binary
+      env:
+        GOOS: ${{ matrix.goos }}
+        GOARCH: ${{ matrix.goarch }}
+        CGO_ENABLED: 0
+      run: |
+        go build -ldflags="-s -w -X 'todo/cmd.Version=${{ steps.version.outputs.VERSION }}' -X 'todo/cmd.GitCommit=${{ github.sha }}' -X 'todo/cmd.BuildDate=$(date -u +%Y-%m-%dT%H:%M:%SZ)'" -o goq${{ matrix.ext }}
+
+    - name: Create archive
+      run: |
+        if [ "${{ matrix.goos }}" = "windows" ]; then
+          zip goq-${{ matrix.os }}-${{ matrix.arch }}.zip goq${{ matrix.ext }}
+        else
+          tar czf goq-${{ matrix.os }}-${{ matrix.arch }}.tar.gz goq${{ matrix.ext }}
+        fi
+
+    - name: Upload binary as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: goq-${{ matrix.os }}-${{ matrix.arch }}
+        path: goq${{ matrix.ext }}
+
+    - name: Upload archive as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: goq-${{ matrix.os }}-${{ matrix.arch }}-archive
+        path: |
+          *.tar.gz
+          *.zip
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Download all artifacts
+      uses: actions/download-artifact@v3
+
+    - name: Get version
+      id: version
+      run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: ${{ steps.version.outputs.VERSION }}
+        name: Release ${{ steps.version.outputs.VERSION }}
+        draft: false
+        prerelease: false
+        generate_release_notes: true
+        files: |
+          */goq*
+        body: |
+          ## 🎉 GoQueue ${{ steps.version.outputs.VERSION }}
+
+          ### Installation
+
+          #### Quick Install
+          ```bash
+          curl -fsSL https://raw.githubusercontent.com/${{ github.repository }}/main/install.sh | bash
+          ```
+
+          #### Manual Download
+          Download the appropriate binary for your platform:
+
+          - **Linux (x86_64)**: `goq-linux-amd64`
+          - **Linux (ARM64)**: `goq-linux-arm64`
+          - **macOS (Intel)**: `goq-darwin-amd64`
+          - **macOS (Apple Silicon)**: `goq-darwin-arm64`
+          - **Windows (x86_64)**: `goq-windows-amd64.exe`
+
+          After downloading, make it executable and move to your PATH:
+          ```bash
+          chmod +x goq-*
+          sudo mv goq-* /usr/local/bin/goq
+          ```
+
+          ### What's Changed
+          See the full changelog below.
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

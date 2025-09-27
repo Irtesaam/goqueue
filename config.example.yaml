@@ -1,0 +1,10 @@
+# GoQueue CLI Configuration File
+# This file demonstrates various configuration options
+
+# Storage file location (can be overridden with --file flag or GOQUEUE_FILE env var)
+file: "/home/apex/.config/goqueue/todos.json"
+
+# You can add other settings here in the future, such as:
+# default_view: "list"
+# date_format: "2006-01-02"
+# theme: "dark"
