@@ -34,7 +34,7 @@ Examples:
 		// Load todos
 		todos := todo.Todos{}
 		store := storage.New[todo.Todos](GetTodoFile())
-		store.Load(&todos)
+		store.LoadOrInitialize(&todos)
 
 		// Add new todo
 		todos.Add(title)

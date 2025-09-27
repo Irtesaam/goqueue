@@ -7,6 +7,11 @@ Goqueue is a command-line To-Do app written in Go — for people who’d rather 
 <img width="1361" height="778" alt="image" src="https://github.com/user-attachments/assets/8180f9fe-54c5-4b3b-bc48-901a1ca43381" />
 
 ## Features
+### Uninstall GoQueue
+To remove GoQueue and all its data:
+```bash
+sudo rm /usr/local/bin/goq
+rm -rf ~/.config/goqueue
 
 ### 🎯 Core Functionality
 - **Add tasks**: `goq add "Your task description"`

@@ -43,7 +43,7 @@ Examples:
 		todos := todo.Todos{}
 		store := storage.New[todo.Todos](GetTodoFile())
 
-		if err := store.Load(&todos); err != nil {
+		if err := store.LoadOrInitialize(&todos); err != nil {
 			fmt.Printf("Error loading todos: %v\n", err)
 			os.Exit(1)
 		}

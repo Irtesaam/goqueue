@@ -28,12 +28,9 @@ This command shows:
 		todos := todo.Todos{}
 		store := storage.New[todo.Todos](GetTodoFile())
 
-		if err := store.Load(&todos); err != nil {
-			// If file doesn't exist, just show empty list
-			if !os.IsNotExist(err) {
-				fmt.Printf("Error loading todos: %v\n", err)
-				os.Exit(1)
-			}
+		if err := store.LoadOrInitialize(&todos); err != nil {
+			fmt.Printf("Error loading todos: %v\n", err)
+			os.Exit(1)
 		}
 
 		if len(todos) == 0 {
